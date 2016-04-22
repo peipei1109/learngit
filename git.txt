@@ -1,0 +1,29 @@
+一、rm只删除工作区信息；
+
+使用 git checkout -- file即可恢复；
+
+二、git rm 删除工作区和stage信息；
+
+1、使用git reset HEAD -- file即可恢复；
+
+2、恢复步骤：
+
+1）先使用git reset HeAD -- file从master中把已删除信息copy到到stage区；
+
+2）再使用git checkout -- file从stage区把已删除信息copy到工作区。over！！！
+
+3）这时你就看到删除的文件又回来啦。啦啦啦！
+
+三、git commit －m “file”删除工作区，stage和master信息；
+
+1、使用git reset --hard HEAD^即可恢复。
+
+2、恢复步骤：
+
+1）先使用git reset --hard HEAD^从master回收处恢复到master中；  前提是你这个文件之前有多个版本~~因为最新的版本已经删掉了的
+
+2）再使用git reset HeAD -- file从master中把已删除信息copy到到stage区；
+
+3）最后，使用git checkout -- file从stage区把已删除信息copy到工作区。
+
+4）这时你就看到删除的文件又回来啦。啦啦啦！
